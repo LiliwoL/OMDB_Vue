@@ -4,30 +4,26 @@
             Search <input name="query" v-model="searchQuery">
         </form>
         <div id="grid-template">
-            <div class="table-header-wrapper">
-            <table class="table-header">
-                <thead>
-                <th v-for="(key, index) in columns"
-                    @click="sortBy(key)"
-                    :class="{ active: sortKey == key }"
-                    v-bind:key = index
-                >
-                    {{ key | capitalize }}
-                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
-                </th>
-                </thead>
-            </table>
-            </div>
             <div class="table-body-wrapper">
-            <table class="table-body">
-                <tbody>
-                <tr v-for="(entry, index) in filteredData" v-bind:key = index>
-                    <td v-for="(key, index) in columns" v-bind:key = index>
-                        {{ entry[key] }}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+              <table class="table-body">
+                <thead>
+                  <th v-for="(key, index) in columns"
+                      @click="sortBy(key)"
+                      :class="{ active: sortKey == key }"
+                      v-bind:key = index
+                  >
+                      {{ key | capitalize }}
+                      <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                  </th>
+                  </thead>
+                  <tbody>
+                  <tr v-for="(entry, index) in filteredData" v-bind:key = index>
+                      <td v-for="(key, index) in columns" v-bind:key = index>
+                          {{ entry[key] }}
+                      </td>
+                  </tr>
+                  </tbody>
+              </table>
             </div>
         </div>
     </div>
