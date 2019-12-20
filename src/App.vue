@@ -1,4 +1,5 @@
 <template>
+
   <div id="app">
 
     <transition name="fade">
@@ -22,6 +23,12 @@
       </div>
 
     </transition>
+
+
+    <!-- Lancement d'un événement global géré par EventBus -->
+    <button @click="emitGlobalEvent">
+      Cliquez moi pour lancer un événement global
+    </button>
   </div>
   
 </template>
@@ -34,6 +41,9 @@ import MovieData from './components/MovieData.vue';
 import MovieSearch from './components/MovieSearch.vue';
 // Import de MovieList
 import MovieList from './components/MovieList.vue';
+
+// Import du Eventbus
+import { EventBus } from './event-bus.js';
 
 
 const key = '2fb7569a';
@@ -63,6 +73,11 @@ export default {
   },
 
   methods: {
+    // Gestion du click sur un bouton pour un event global
+    emitGlobalEvent: function() {
+      EventBus.$emit('clickButton', "Bonjour");
+    },
+
     findMovie: function(title) {
       this.error = false;
       this.loading = true;

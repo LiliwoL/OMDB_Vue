@@ -19,7 +19,7 @@
                   <tbody>
                   <tr v-for="(entry, index) in filteredData" v-bind:key = index>
                       <td v-for="(key, index) in columns" v-bind:key = index>
-                          {{ entry[key] }}
+                          <div :inner-html.prop="entry[key] | filter"></div>
                       </td>
                   </tr>
                   </tbody>
@@ -74,6 +74,13 @@ export default {
   filters: {
     capitalize: function (str) {
       return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+    filter: function ( element ) {
+      if ( element.split('.').pop() == "jpg" ) {
+        return `<img src="${element}" />`;
+      }else{
+        return element;
+      }
     }
   },
   methods: {

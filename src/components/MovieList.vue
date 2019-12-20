@@ -42,3 +42,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+  .movie__list{
+    margin-top: 50px;
+  }
+</style>

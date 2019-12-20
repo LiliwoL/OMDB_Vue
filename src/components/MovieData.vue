@@ -49,6 +49,10 @@
 
 
 <script>
+// Import du Eventbus
+import { EventBus } from '../event-bus.js';
+
+
 export default {
     props: [
         'movie',
@@ -66,6 +70,29 @@ export default {
         imgLoaded: function() {
             this.showImg = true;
         }
+    },
+
+    created: function ()
+    {
+
+      // Inscription à l'événement UNE seule fois
+      EventBus.$on(
+        'clickButton', 
+        (name) => {
+          // Appel de la fonction log déclarée dans le mixin global
+          this.log ("On a cliqué sur le bouton " + name);
+        }
+      )
+
+    },
+
+    destroyed: function () {
+
+      // Destruction de l'écouteur de l'événement
+      EventBus.$off(
+        'clickButton'
+      );
+
     }
 }
 </script>
