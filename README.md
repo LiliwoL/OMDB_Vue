@@ -8,4 +8,15 @@ https://jsfiddle.net/user/LiliwoL/fiddles/
 ## Slides
 https://slides.com/liliwol_formation
 
+## En plus
+
+* Vuetify
+https://vuetifyjs.com/en/
+
+* OmdbAPI
+http://www.omdbapi.com/
+
+* ServiceWorkers
+https://serviceworke.rs/
+
 Merci à tous!
